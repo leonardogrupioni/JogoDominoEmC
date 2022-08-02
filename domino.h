@@ -7,3 +7,5 @@ typedef struct _peca{
 
 void inicializarPecas(PECAS *pecas);
 void imprimirTodasPecas(PECAS *pecas);
+void embaralharPecas(PECAS *pecas);
+void sorteio(int qtd, int max, int retorno[qtd]);
