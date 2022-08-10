@@ -8,7 +8,7 @@ void embaralharPecas(PECAS pecas[]){ //embaralharPecas: -pegar 28 numeros aleato
     int r = 0;
     for(int i = 0; i < 28; i++){
         r =  rand () % 28;
-        temp = pecas[i].posicao; 
+        temp = pecas[i].posicao;
         pecas[i].posicao = pecas[r].posicao;
         pecas[r].posicao = temp;
     }
