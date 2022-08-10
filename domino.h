@@ -9,5 +9,5 @@ typedef struct _peca{
     char stats; //onde esta a peca, P = pilha, 1 = jogador1, 2 = jogador2, M = mesa
 } PECAS;
 
-void inicializarPecas(PECAS *pecas);
-void imprimirTodasPecas(PECAS *pecas);
+void inicializarPecas(PECAS pecas[]);
+void imprimirTodasPecas(PECAS pecas[]);
