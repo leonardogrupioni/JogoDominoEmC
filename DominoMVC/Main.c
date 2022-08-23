@@ -9,14 +9,11 @@
 
 
 int main(){
-    srand(time(0)); //funcao para gerar sempre uma nova semente para gerar os numeros randomicos
-
-    printf("JOGO DE DOMINO!\n\n");
-
+    
     //cria a array pecas
-    PECAS pecas[28]; 
+    PECA pecas[28]; 
 
-    menuController(pecas);
+    menu(pecas); //acessa o controller
    
     return 0;
 }
