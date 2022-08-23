@@ -1,2 +1,2 @@
 //funcoes pré-declaradas
-void menuController(PECAS pecas[]);
+void menu(PECA pecas[]);
