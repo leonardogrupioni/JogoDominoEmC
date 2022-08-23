@@ -11,37 +11,63 @@
 //             que executa a funcao necessaria e em seguida devolve para o Controller que envia para o View
 
 
-
-//Funcao controller
-void menuController(PECAS pecas[]){
-
-    int controle = 1;
-    do{
-    int op = imprimirMenuInicial(); //funcao no view que impreme o menu inicial
+void menu(PECA pecas[]) {
     
-    
-    switch(op){
-        
-            case 1:
+    iniciarJogo();
+
+    int controle = 1; //para repeticao do menu
+    int escolha = 0;
+       
+    do {
+        imprimirInterface();
+        escolha = escolher();
+        switch (escolha) {
+            case 1: //jogar com submenu
+                //possibilidade de transformar em funcao
                 inicializarPecas(pecas);
-                //trabalhar o jogo aqui dentro os demais casos sao apenas para efeito de primeiras versoes
-                //inicialisar funcoes para poder jogar embaralhar, distribuir pecas, quantos players vao jogar (2 = 1x1) (1 = 1xIA), ...
-                break;
-            //os casos em diante sao apenas para efeito de primeiras versoes
-            case 2:
-                imprimirTodasPecas(pecas);
-                break;
-            case 3:
                 embaralharPecas(pecas);
-                imprimirPecasEmbaralhadas(pecas);
+                distribuirPecas(pecas);
+                int jogadores = 0;
+                //possibilidade de transformar em funcao
+                do{
+                    imprimirJogarMenu();
+                    jogadores = escolher();
+                    switch (jogadores) {
+                    case 1: ; //2 jogadores
+                        int primeiroAJogar = conferirPecaInicial(pecas);
+                        jogadorInicial(primeiroAJogar);
+
+                        break;
+                    case 2: //Jogador contra IA
+                        emDesenvolvimento();
+                        break;
+                    default:
+                        break;
+                    }
+                } while(jogadores != 1 && jogadores != 2);
                 break;
-            case 4:
-                desembaralharPeca(pecas);
-                imprimirPecasDesembaralhadas(pecas);
+            case 2: //Retomar partida
+                    emDesenvolvimento();
                 break;
-            default: 
+            case 3: //Salvar partida
+                    emDesenvolvimento();
+                break;
+            case 4: //Carregar partida salva
+                    emDesenvolvimento();
+                break;
+            case 5: //Regras
+                    emDesenvolvimento();
+                break;
+            case 0: //Sair
+                sairDoJogo();
                 controle = 0;
                 break;
+            default:
+                opcaoEscolhaInvalida();
+                break;
         }
-    }while(controle != 0);
+    } while (controle != 0);
+    
+    exit(0);
+
 }
